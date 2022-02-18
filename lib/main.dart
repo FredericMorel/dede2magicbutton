@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    int myButton = 5;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 80, 140, 245),
       appBar: AppBar(
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
               child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset("assets/images/ball1.png"),
+            child: Image.asset("assets/images/ball$myButton.png"),
           ))
         ],
       )),
