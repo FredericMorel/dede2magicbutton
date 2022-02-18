@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +28,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int myButton = 1;
   @override
   Widget build(BuildContext context) {
-    int myButton = 5;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 80, 140, 245),
       appBar: AppBar(
@@ -42,7 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
               child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset("assets/images/ball$myButton.png"),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  myButton = Random().nextInt(5) + 1;
+                  print(myButton);
+                });
+              },
+              child: Image.asset(
+                  "assets/images/ball" + myButton.toString() + ".png"),
+            ),
           ))
         ],
       )),
